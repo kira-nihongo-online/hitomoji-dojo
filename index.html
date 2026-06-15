@@ -307,7 +307,7 @@ async function getImageCached(fileId){
   }
 
   const apiUrl =
-    'https://script.google.com/macros/s/AKfycbw5uC6lwJf3LVCLPaCjfUw0DpwvsflywLcS6V2-1HaxcxUNqlf44ovlE7AHFfrEm1g/exec?image='
+    'https://script.google.com/macros/s/AKfycbwYNzCnG9mmtSG3m6mZBoyK706_M2x5anODuu1jVPQh1k_Kma3KipZqy725i4XjXNth/exec?image='
     + fileId;
 
   const response = await fetch(apiUrl);
@@ -805,7 +805,7 @@ async function initApp() {
 
   // データ取得
   const response = await fetch(
-    'https://script.google.com/macros/s/AKfycbw5uC6lwJf3LVCLPaCjfUw0DpwvsflywLcS6V2-1HaxcxUNqlf44ovlE7AHFfrEm1g/exec'
+    'https://script.google.com/macros/s/AKfycbwYNzCnG9mmtSG3m6mZBoyK706_M2x5anODuu1jVPQh1k_Kma3KipZqy725i4XjXNth/exec'
   );
 
   const data = await response.json();
