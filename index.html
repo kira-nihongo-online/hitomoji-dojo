@@ -91,20 +91,6 @@ body{
   margin-left:auto;
 }
 
-/* ボタン */
-#checkBtn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  border:none;
-  border-radius:12px;
-  background:#222;
-  color:#fff;
-  font-size:24px;
-}
-
 #speakBtn{
   position:fixed;
   bottom:20px;
@@ -618,9 +604,6 @@ function openSettings(){
     `input[name="sound"][value="${settings.sound}"]`
   ).checked = true;
 
-  document.querySelector(
-    `input[name="memo"][value="${settings.memo}"]`
-  ).checked = true;
 
   const orderEl = document.querySelector(
     `input[name="order"][value="${settings.order}"]`
@@ -643,15 +626,11 @@ function saveSettings(){
   const sound =
     document.querySelector('input[name="sound"]:checked').value;
 
-  const memo =
-    document.querySelector('input[name="memo"]:checked').value;
-
   const order =
     document.querySelector('input[name="order"]:checked').value;
 
   localStorage.setItem("settings", JSON.stringify({
     sound: sound,
-    memo: memo,
     order: order
   }));
 
@@ -664,16 +643,11 @@ function getSettings() {
   const settings =
     JSON.parse(localStorage.getItem("settings")) || {
       sound: "on",
-      memo: "on",
       order: "normal"
     };
 
   document.querySelectorAll('input[name="sound"]').forEach(r => {
     r.checked = (r.value === settings.sound);
-  });
-
-  document.querySelectorAll('input[name="memo"]').forEach(r => {
-    r.checked = (r.value === settings.memo);
   });
 
   document.querySelectorAll('input[name="order"]').forEach(r => {
@@ -828,12 +802,6 @@ initApp();
       <label><input type="radio" name="sound" value="off"> OFF</label>
     </div>
 
-    <!-- メモ -->
-    <div class="setting-row">
-      <span class="label">メモ：</span>
-      <label><input type="radio" name="memo" value="on"> ON</label>
-      <label><input type="radio" name="memo" value="off"> OFF</label>
-    </div>
 
     <!-- ★ここに追加 -->
     <div class="setting-row">
