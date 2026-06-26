@@ -629,7 +629,7 @@ function saveSettings(){
   const order =
     document.querySelector('input[name="order"]:checked').value;
 
-  localStorage.setItem("settings", JSON.stringify({
+  localStorage.setItem("hitomojiSettings", JSON.stringify({
     sound: sound,
     order: order
   }));
@@ -640,11 +640,13 @@ function saveSettings(){
 
 function getSettings() {
 
-  const settings =
-    JSON.parse(localStorage.getItem("settings")) || {
+  const settings = Object.assign(
+    {
       sound: "on",
       order: "normal"
-    };
+    },
+    JSON.parse(localStorage.getItem("hitomojiSettings")) || {}
+  );
 
   document.querySelectorAll('input[name="sound"]').forEach(r => {
     r.checked = (r.value === settings.sound);
